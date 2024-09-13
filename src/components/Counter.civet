@@ -1,7 +1,15 @@
-{ createSignal } from 'solid-js'
-import './Counter.css'
+{ useState } from 'react'
 
-export default function Counter()
-  [count, setCount] := createSignal 0
-  <button class='increment' onClick={=> setCount count() + 1}>
-    Clicks: {count()}
+export default => do
+  [count, setCount] := useState 0
+  <button
+    style={{
+      background: "black",
+      color: "white",
+      border: 0,
+      margin: 0,
+      paddingBlock: 8,
+      paddingInline: 12
+    }}
+    onClick={=> setCount (count + 1)}>
+    Clicks: {count}
